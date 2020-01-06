@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AreasModule } from './areas/areas.module';
+import { ComponentsModule } from './components/components.module';
+import { BaseRoutingModule } from './routing/routing.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -9,10 +13,21 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
+    // base
     BrowserModule,
-    AppRoutingModule
+    // external
+    NgbModule,
+
+    // submodules
+    ComponentsModule,
+    AreasModule,
+
+    // always in the end
+    BaseRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+  	AppComponent
+  ]
 })
 export class AppModule { }
